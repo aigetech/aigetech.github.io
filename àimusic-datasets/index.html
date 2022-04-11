@@ -44,12 +44,23 @@
         <a href="./datas/data-tone/">view datasets</a>
         <h2 id="aigetechgithubio">dataset format</h2>
         <div>
-            <code>C:KeyMode.MAJOR</code> #tonality of the file<br>
+            <code>C:KeyMode.MAJOR</code> #Tonality of the file<br>
             <code>[74,74,74,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,72,72,76,76,76,76,74,74,74,74,74,74,74,74,74,71,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,60,65,65,65,65,65,65,67,67,67,64,64,64,64,64,64,64,64,64,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,62]</code>
-            #melody<br>
+            #melody,every 4 notes correspond to a chord<br>
             <code>[[38,41,45],[41,45,48],[41,45,48],[43,47,50],[43,47,50],[45,48,52],[45,48,52],[45,48,52],[45,48,52],[45,48,52],[45,48,52],[45,48,52],[45,48,52],[36,40,43],[36,40,43],[45,48,52],[45,48,52],[41,45,48],[41,45,48],[36,40,43],[36,40,43],[43,47,50],[43,47,50],[43,47,50],[43,47,50],[43,47,50],[43,47,50],[43,47,50],[43,47,50],[38,42,45]]</code>
             #chord
         </div>
+        <h2 id="aigetechgithubio">parse file</h2>
+        <code>
+            file = open("./datas/data-tone/1.txt")  # open file<br>
+            arr = file.read().split("\n")  # read file<br>
+            tone = arr[0]  # get Tonality<br>
+            print(tone)<br>
+            melody = arr[1].strip("[]").split(",")  # get melody<br>
+            print(melody)<br>
+            chord = arr[2].lstrip("[").rstrip("]").split("],[")  # get chord<br>
+            print(chord)<br>
+        </code>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
